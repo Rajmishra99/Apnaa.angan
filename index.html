@@ -25,6 +25,53 @@
 
         <!-- Template Stylesheet -->
         <link href="style.css" rel="stylesheet">
+
+        <style>
+    /* Container styling */
+    .testimonial-container {
+        width: 100%;
+        max-width: 600px;
+        overflow: hidden;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Testimonial slide styling */
+    .testimonial-slide {
+        display: flex;
+        animation: slide 15s infinite;
+        transition: transform 0.5s ease;
+    }
+
+    /* Individual testimonial styling */
+    .testimonial {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        background: #f9f9f9;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .testimonial h3 {
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .testimonial p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    /* Keyframes for sliding effect */
+    @keyframes slide {
+        0% { transform: translateX(0%); }
+        33% { transform: translateX(-100%); }
+        66% { transform: translateX(-200%); }
+        100% { transform: translateX(0%); }
+    }
+</style>
+        
     </head>
 
     <body>
@@ -257,7 +304,7 @@
                                         <i class="flaticon-building"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">30+</h2>
+                                        <h2 data-toggle="counter-up">10+</h2>
                                         <p>Happy Clients</p>
                                     </div>
                                 </div>
@@ -270,7 +317,7 @@
                                         <i class="flaticon-address"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">20+</h2>
+                                        <h2 data-toggle="counter-up">5+</h2>
                                         <p>Completed Projects</p>
                                     </div>
                                 </div>
@@ -279,7 +326,7 @@
                                         <i class="flaticon-crane"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">9</h2>
+                                        <h2 data-toggle="counter-up">2</h2>
                                         <p>Running Projects</p>
                                     </div>
                                 </div>
@@ -406,35 +453,22 @@
             <!-- Video End -->
             
             <!-- Testimonial Start -->
-            <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="testimonial-slider">
-                                <div class="slider-item">
-                                    <h3>Rupa Tiwari</h3>
-                                    <h4>Teacher</h4>
-                                    <p>Apna Aangan turned our vision into reality! From the initial 3D design to the final finishing touches, their expertise and attention to detail were evident in every step. The home feels spacious, modern, and perfectly aligned with vastu principles. Highly recommended for anyone in Indore looking to build their dream home</p>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="slider-item">
-                                    <h3>Yash Verma</h3>
-                                    <h4>Engineer</h4>
-                                    <p>I was amazed by the quality of work and materials used by Apna Aangan. The team was professional, punctual, and delivered everything as promised. The vastu-aligned designs and personalized touches truly make our new house feel like a home. Apna Aangan has set a new standard for construction in Rewa.</p>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="slider-item">
-                                    <h3>Ashok Tiwari</h3>
-                                    <h4>Advocate</h4>
-                                    <p>Apna Aangan has redefined luxury home-building in Rewa. The entire process, from material selection to finishing, was done with expertise and care. Our home is beautiful, safe, and durable. I felt confident with their team of engineers and architects who understood our needs and delivered beyond our expectations.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="testimonial-container">
+    <div class="testimonial-slide">
+        <div class="testimonial">
+            <h3>Client 1</h3>
+            <p>"Apna Aangan turned my dream home into reality. Every detail was perfectly crafted!"</p>
+        </div>
+        <div class="testimonial">
+            <h3>Client 2</h3>
+            <p>"The team at Apna Aangan truly cares about quality. My home feels safe and luxurious."</p>
+        </div>
+        <div class="testimonial">
+            <h3>Client 3</h3>
+            <p>"Their vastu-compliant designs brought positive energy into our new house. Highly recommend!"</p>
+        </div>
+    </div>
+</div>
             <!-- Testimonial End -->
 
             <!-- Footer Start -->
