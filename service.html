@@ -73,34 +73,57 @@
         }
     </style>
 
-          <style>
-        /* Styling for the container */
-        .slider-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 10px;
-            padding: 20px;
-            max-width: 100%;
-            box-sizing: border-box;
+         <style>
+        /* Container for the entire slider and buttons */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Adjust as needed */
+            margin: auto;
+            overflow: hidden;
         }
 
-        /* Each image container */
+        /* Styling for the container holding the images */
+        .slider-container {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            gap: 10px;
+        }
+
+        /* Each image styling */
         .slider-container img {
             width: 300px; /* Adjust as needed */
             height: auto;
-            scroll-snap-align: start;
             border-radius: 8px;
         }
 
-        /* Hide scrollbar on Webkit (Chrome, Safari) */
-        .slider-container::-webkit-scrollbar {
-            display: none;
+        /* Styling for navigation buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
         }
-        
-        /* Optional: Custom scrollbar for other browsers */
-        .slider-container {
-            scrollbar-width: none; /* Firefox */
+
+        /* Positioning the buttons */
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
         }
     </style>
           
@@ -338,14 +361,35 @@
                     <div class="row blog-page">
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="blog-item">
-                                <div class="slider-container">
-                                    <img src="service-1.jpg" alt="Image 1">
-                                    <img src="service-1.jpg" alt="Image 2">
-                                    <img src="service-1.jpg" alt="Image 3">
-                                    <img src="service-1.jpg" alt="Image 4">
-                                    <img src="service-1.jpg" alt="Image 5">
-                                    <img src="service-1.jpg" alt="Image 6">
-                                </div>
+                               <div class="slider-wrapper">
+        <!-- Previous Button -->
+        <button class="nav-button prev" onclick="scrollSlider(-1)">&#10094;</button>
+        
+        <!-- Image Slider -->
+        <div class="slider-container" id="slider">
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+            <img src="image4.jpg" alt="Image 4">
+            <img src="image5.jpg" alt="Image 5">
+            <img src="image6.jpg" alt="Image 6">
+        </div>
+
+        <!-- Next Button -->
+        <button class="nav-button next" onclick="scrollSlider(1)">&#10095;</button>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const scrollAmount = 310; // Adjust scroll amount to match image width + gap
+
+        function scrollSlider(direction) {
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
                                 <div class="blog-title">
                                     <h3>30x40 Compact Home Plan</h3>
                                 </div>
