@@ -247,6 +247,25 @@
                                 <a href="portfolio.html" class="nav-item nav-link">Project</a>
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
                             </div>
+                            <h2>Select User Type</h2>
+    <button onclick="showForm('Buyer')">I am a Buyer</button>
+    <button onclick="showForm('Seller')">I am a Seller</button>
+    
+    <div id="form-box" class="form-container">
+        <h3 id="form-title"></h3>
+        <form id="userForm">
+            <input type="hidden" name="userType" id="userType">
+            <label>Name:</label><br>
+            <input type="text" name="name" required><br>
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br>
+            <label>Phone:</label><br>
+            <input type="text" name="phone" required><br>
+            <label>Message:</label><br>
+            <textarea name="message" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
                             <div class="ml-auto">
                                 <a class="btn" href="tel:+919009989053">Call Us</a>
                             </div>
@@ -656,26 +675,6 @@
 <div class="loader-background">
     <div class="spinner"></div>
 </div>
-
-         <h2>Select User Type</h2>
-    <button onclick="showForm('Buyer')">I am a Buyer</button>
-    <button onclick="showForm('Seller')">I am a Seller</button>
-    
-    <div id="form-box" class="form-container">
-        <h3 id="form-title"></h3>
-        <form id="userForm">
-            <input type="hidden" name="userType" id="userType">
-            <label>Name:</label><br>
-            <input type="text" name="name" required><br>
-            <label>Email:</label><br>
-            <input type="email" name="email" required><br>
-            <label>Phone:</label><br>
-            <input type="text" name="phone" required><br>
-            <label>Message:</label><br>
-            <textarea name="message" required></textarea><br>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
 
     <script>
         function showForm(type) {
