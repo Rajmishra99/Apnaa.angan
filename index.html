@@ -126,11 +126,51 @@
         color: #ffffff;
         font-size: 14px;
     }
-
-
 </style>
-
-      
+        
+/* form */
+     <title>Buyer & Seller Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            background: #f9f9f9;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style> 
         
     </head>
 
@@ -617,6 +657,45 @@
     <div class="spinner"></div>
 </div>
 
+         <h2>Select User Type</h2>
+    <button onclick="showForm('Buyer')">I am a Buyer</button>
+    <button onclick="showForm('Seller')">I am a Seller</button>
+    
+    <div id="form-box" class="form-container">
+        <h3 id="form-title"></h3>
+        <form id="userForm">
+            <input type="hidden" name="userType" id="userType">
+            <label>Name:</label><br>
+            <input type="text" name="name" required><br>
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br>
+            <label>Phone:</label><br>
+            <input type="text" name="phone" required><br>
+            <label>Message:</label><br>
+            <textarea name="message" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(type) {
+            document.getElementById("userType").value = type;
+            document.getElementById("form-title").innerText = "Submit as " + type;
+            document.getElementById("form-box").style.display = "block";
+        }
+
+        document.getElementById("userForm").onsubmit = function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch("send_email.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => alert(data === "success" ? "Form submitted successfully!" : "Error submitting form."));
+        }
+    </script>
+        
 <script>
     // JavaScript to hide loader and show content once page loads
     window.addEventListener("load", function() {
